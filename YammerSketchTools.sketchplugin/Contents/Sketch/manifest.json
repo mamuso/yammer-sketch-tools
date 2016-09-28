@@ -1,0 +1,19 @@
+{
+  "name": "💦 Yammer Sketch Tools",
+  "description": "Collection of tools and commands for Sketch that we use at Yammer 🐒",
+  "author": "Manuel Muñoz Solera",
+  "authorEmail": "mamuso@mamuso.net",
+  "version": "0.0.1",
+  "identifier": "io.mamuso.yammer.sketch-plugin",
+  "commands": [{
+    "name": "🔓 Unlock All the Layers",
+    "identifier": "unlock",
+    "shortcut": "cmd alt shift u",
+    "script": "Layers/Unlock.cocoascript"
+  }],
+  "menu": {
+    "items": [
+      "unlock"
+    ]
+  }
+}

@@ -1,2 +1,3 @@
-# yammer-sketch-helper
-Sketch plugins and commands we use at Yammer
+# Yammer sketch helper
+
+Plugins and commands we use at Yammer
