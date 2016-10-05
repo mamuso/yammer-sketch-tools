@@ -1,4 +1,4 @@
-# Yammer sketch helper
+# Yammer Sketch Commands
 Plugins and commands we use at Yammer.
 
 ## List of available commands
