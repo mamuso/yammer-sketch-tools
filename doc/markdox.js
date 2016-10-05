@@ -10,7 +10,7 @@ var fixtures = [
 
 var options = {
   output: 'README.md', 
-  template: 'markdox/template.md.ejs',
+  template: 'doc/template.md.ejs',
 };
 
 markdox.process(fixtures, options, function(){

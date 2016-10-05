@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Plugins and commands we use at Yammer",
   "scripts": {
-    "build": "node markdox/markdox.js"
+    "doc": "node doc/markdox.js"
   },
   "devDependencies": {
     "markdox": "^0.1.10"
