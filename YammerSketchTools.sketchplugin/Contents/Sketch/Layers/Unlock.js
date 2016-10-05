@@ -27,7 +27,7 @@
       }
     }
 
-    doc.showMessage("🔓 " + unlocked + " layers unlocked");
+    doc.showMessage("🔓 " + unlocked + " layer" + (unlocked != 1 ? "s" : "") + " unlocked");
 
   } catch (e) {
     NSApplication.sharedApplication().displayDialog_withTitle_(e, "Something went 💩");
