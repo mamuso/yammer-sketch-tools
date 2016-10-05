@@ -12,3 +12,10 @@ We found inspiration in [this article](https://blog.truthlabs.com/sketch-plugin-
 
 ![Unlock](doc/assets/unlock.gif)
 
+### Layers / 👏 Toggle Margin Boxes
+**Shortcut:** ctrl alt cmd m
+
+Toggles the visibility of layers with named "y-marginbox". . 
+
+![Unlock](doc/assets/togglemargin.gif)
+

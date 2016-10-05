@@ -5,7 +5,8 @@ var docFolder = 'YammerSketchTools.sketchplugin/Contents/Sketch/';
 
 // Fixtures
 var fixtures = [
-  docFolder + '/Layers/Unlock.js',
+  docFolder + '/layers/Unlock.js',
+  docFolder + '/layers/ToggleMarginBlocks.js',
 ];
 
 var options = {

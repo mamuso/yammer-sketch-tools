@@ -3,17 +3,26 @@
   "description": "Our design team swiss knife.",
   "author": "Manuel Muñoz Solera",
   "authorEmail": "mamuso@mamuso.net",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "identifier": "io.mamuso.sketch.ytools",
-  "commands": [{
-    "name": "🔓 Unlock All the Layers",
-    "identifier": "unlock",
-    "shortcut": "ctrl alt cmd u",
-    "script": "Layers/Unlock.js"
-  }],
+  "commands": [
+    {
+      "name": "🔓 Unlock All the Layers",
+      "identifier": "unlock",
+      "shortcut": "ctrl alt cmd u",
+      "script": "layers/Unlock.js"
+    },
+    {
+      "name": "👏 Toggle Margin Boxes",
+      "identifier": "toggle-margin-block",
+      "shortcut": "ctrl alt cmd m",
+      "script": "layers/ToggleMarginBlocks.js"
+    }
+  ],
   "menu": {
     "items": [
-      "unlock"
+      "unlock",
+      "toggle-margin-block"
     ]
   }
 }
