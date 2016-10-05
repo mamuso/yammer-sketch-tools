@@ -1,0 +1,12 @@
+# Yammer sketch helper
+Plugins and commands we use at Yammer.
+
+## List of available commands
+
+<? docfiles.forEach(function(doc) { ?>
+  <? doc.javadoc.forEach(function(comment) { ?>
+    <? if (!comment.ignore) { ?>
+      <?= comment.description ?>
+    <? } ?>
+  <? }) ?>
+<? }) ?>

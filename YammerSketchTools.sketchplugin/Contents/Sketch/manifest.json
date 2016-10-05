@@ -1,15 +1,15 @@
 {
-  "name": "💦 Yammer Sketch Tools",
-  "description": "Collection of tools and commands for Sketch that we use at Yammer 🐒",
+  "name": "🙆 Yammer Sketch Tools",
+  "description": "Our design team swiss knife.",
   "author": "Manuel Muñoz Solera",
   "authorEmail": "mamuso@mamuso.net",
   "version": "0.0.1",
-  "identifier": "io.mamuso.yammer.sketch-plugin",
+  "identifier": "io.mamuso.sketch.ytools",
   "commands": [{
     "name": "🔓 Unlock All the Layers",
     "identifier": "unlock",
-    "shortcut": "cmd alt shift u",
-    "script": "Layers/Unlock.cocoascript"
+    "shortcut": "ctrl alt cmd u",
+    "script": "Layers/Unlock.js"
   }],
   "menu": {
     "items": [
