@@ -12,11 +12,12 @@
 
  var onRun = function(context) {
   try {
+    
     var doc = context.document,
-    page = doc.currentPage(),
-    artboard = page.currentArtboard(),
-    layers = artboard == null ? page.children() : artboard.children(),
-    unlocked = 0;
+        page = doc.currentPage(),
+        artboard = page.currentArtboard(),
+        layers = artboard == null ? page.children() : artboard.children(),
+        unlocked = 0;
 
     for (var i = 0; i < layers.count(); i++) {
       var layer = layers[i];
