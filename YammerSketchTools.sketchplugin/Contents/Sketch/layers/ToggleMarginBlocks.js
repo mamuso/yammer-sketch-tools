@@ -29,11 +29,9 @@
     if (selection.count() > 0) { layers = selection }
 
     if (layers.class() == '__NSArrayI') {
-
       for (var i = 0; i < layers.count(); i++) {
         toggleMarginBox(layers[i].children());
       }
-
     } else {
         toggleMarginBox(layers.children());
     }
