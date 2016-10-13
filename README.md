@@ -21,5 +21,5 @@ Toggles the visibility of layers with named ```y-marginbox```, using the first e
 - If you are using artboards, it will toggle the layers of your current artboard.
 - If you have selected some layers or groups, it will toggle just the layers included in the selection.
 
-![Unlock](doc/assets/togglemargin.gif)
+![Unlock](doc/assets/marginbox.gif)
 
