@@ -8,7 +8,7 @@
  * - If you are using artboards, it will toggle the layers of your current artboard.
  * - If you have selected some layers or groups, it will toggle just the layers included in the selection.
  *
- * ![Unlock](doc/assets/togglemargin.gif)
+ * ![Unlock](doc/assets/marginbox.gif)
  * 
  */
 

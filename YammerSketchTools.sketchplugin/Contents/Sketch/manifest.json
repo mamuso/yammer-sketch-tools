@@ -3,7 +3,7 @@
   "description": "Our design team swiss knife.",
   "author": "Manuel Muñoz Solera",
   "authorEmail": "mamuso@mamuso.net",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "identifier": "io.mamuso.sketch.ytools",
   "commands": [
     {
@@ -17,12 +17,26 @@
       "identifier": "toggle-margin-block",
       "shortcut": "ctrl alt cmd m",
       "script": "layers/ToggleMarginBlocks.js"
+    },
+    {
+      "name": "⬆️ Compact Vertical Space",
+      "identifier": "compact-vertical-space",
+      "shortcut": "ctrl alt cmd ↑",
+      "script": "layers/CompactVerticalSpace.js"
+    },
+    {
+      "name": "⬅️ Compact Horizontal Space",
+      "identifier": "compact-horizontal-space",
+      "shortcut": "ctrl alt cmd ←",
+      "script": "layers/CompactHorizontalSpace.js"
     }
   ],
   "menu": {
     "items": [
       "unlock",
-      "toggle-margin-block"
+      "toggle-margin-block",
+      "compact-vertical-space",
+      "compact-horizontal-space"
     ]
   }
 }
