@@ -1,6 +1,6 @@
 /**
  * ### Layers / :arrow_left: Compact Horizontal Space
- * **Shortcut:** ctrl alt cmd ←
+ * **Shortcut:** ctrl alt ←
  * 
  * Distributes the selected elements horizontally removing the spacing between them. The code is borrowed from @bomberstudios [Sketch Commands](https://github.com/bomberstudios/sketch-commands/blob/master/Sketch%20Commands.sketchplugin/Contents/Sketch/Align/Space%20Horizontal.cocoascript) and slightly modified.
  * 

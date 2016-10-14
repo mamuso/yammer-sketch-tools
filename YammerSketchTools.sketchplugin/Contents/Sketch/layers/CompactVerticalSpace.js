@@ -1,6 +1,6 @@
 /**
  * ### Layers / :arrow_up: Compact Vertical Space
- * **Shortcut:** ctrl alt cmd ↑
+ * **Shortcut:** ctrl alt ↑
  * 
  * Distributes the selected elements vertically removing the spacing between them. The code is borrowed from @bomberstudios [Sketch Commands](https://github.com/bomberstudios/sketch-commands/blob/master/Sketch%20Commands.sketchplugin/Contents/Sketch/Align/Space%20Vertical.cocoascript) and slightly modified.
  * 

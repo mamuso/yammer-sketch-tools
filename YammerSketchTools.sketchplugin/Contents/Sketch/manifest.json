@@ -21,13 +21,13 @@
     {
       "name": "⬆️ Compact Vertical Space",
       "identifier": "compact-vertical-space",
-      "shortcut": "ctrl alt cmd ↑",
+      "shortcut": "ctrl alt ↑",
       "script": "layers/CompactVerticalSpace.js"
     },
     {
       "name": "⬅️ Compact Horizontal Space",
       "identifier": "compact-horizontal-space",
-      "shortcut": "ctrl alt cmd ←",
+      "shortcut": "ctrl alt ←",
       "script": "layers/CompactHorizontalSpace.js"
     }
   ],
