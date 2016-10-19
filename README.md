@@ -24,16 +24,25 @@ Toggles the visibility of layers with named ```y-marginbox```, using the first e
 ![Unlock](doc/assets/marginbox.gif)
 
 ### Layers / :arrow_up: Compact Vertical Space
-**Shortcut:** ctrl alt cmd ↑
+**Shortcut:** ctrl alt ↑
 
 Distributes the selected elements vertically removing the spacing between them. The code is borrowed from @bomberstudios [Sketch Commands](https://github.com/bomberstudios/sketch-commands/blob/master/Sketch%20Commands.sketchplugin/Contents/Sketch/Align/Space%20Vertical.cocoascript) and slightly modified.
 
 ![Unlock](doc/assets/compactvertical.gif)
 
 ### Layers / :arrow_left: Compact Horizontal Space
-**Shortcut:** ctrl alt cmd ←
+**Shortcut:** ctrl alt ←
 
 Distributes the selected elements horizontally removing the spacing between them. The code is borrowed from @bomberstudios [Sketch Commands](https://github.com/bomberstudios/sketch-commands/blob/master/Sketch%20Commands.sketchplugin/Contents/Sketch/Align/Space%20Horizontal.cocoascript) and slightly modified.
 
 ![Unlock](doc/assets/compacthorizontal.gif)
+
+### Text / :scissors: Truncate text lines
+**Shortcut:** ctrl alt cmd t
+
+Cut the number of lines of a textbox, adding an ellipsis if needed. It works using works, not characters.
+
+Most of the ideas are taken from the [sketch data populator plugin](https://github.com/preciousforever/sketch-data-populator/).
+
+![Trim](doc/assets/trimline.gif)
 

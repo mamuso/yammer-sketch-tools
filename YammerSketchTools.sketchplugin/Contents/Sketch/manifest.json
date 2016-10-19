@@ -3,40 +3,47 @@
   "description": "Our design team swiss knife.",
   "author": "Manuel Muñoz Solera",
   "authorEmail": "mamuso@mamuso.net",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "identifier": "io.mamuso.sketch.ytools",
   "commands": [
     {
       "name": "🔓 Unlock All the Layers",
-      "identifier": "unlock",
+      "identifier": "layers-unlock",
       "shortcut": "ctrl alt cmd u",
       "script": "layers/Unlock.js"
     },
     {
       "name": "👏 Toggle Margin Boxes",
-      "identifier": "toggle-margin-block",
+      "identifier": "layers-toggle-margin-block",
       "shortcut": "ctrl alt cmd m",
       "script": "layers/ToggleMarginBlocks.js"
     },
     {
       "name": "⬆️ Compact Vertical Space",
-      "identifier": "compact-vertical-space",
+      "identifier": "layers-compact-vertical-space",
       "shortcut": "ctrl alt ↑",
       "script": "layers/CompactVerticalSpace.js"
     },
     {
       "name": "⬅️ Compact Horizontal Space",
-      "identifier": "compact-horizontal-space",
+      "identifier": "layers-compact-horizontal-space",
       "shortcut": "ctrl alt ←",
       "script": "layers/CompactHorizontalSpace.js"
+    },
+    {
+      "name": "✂️ Truncate text lines",
+      "identifier": "text-truncate-text-lines",
+      "shortcut": "ctrl alt cmd t",
+      "script": "text/TruncateLines.js"
     }
   ],
   "menu": {
     "items": [
       "unlock",
-      "toggle-margin-block",
-      "compact-vertical-space",
-      "compact-horizontal-space"
+      "layers-toggle-margin-block",
+      "layers-compact-vertical-space",
+      "layers-compact-horizontal-space",
+      "text-truncate-text-lines"
     ]
   }
 }

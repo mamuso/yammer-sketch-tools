@@ -9,6 +9,7 @@ var fixtures = [
   docFolder + '/layers/ToggleMarginBlocks.js',
   docFolder + '/layers/CompactVerticalSpace.js',
   docFolder + '/layers/CompactHorizontalSpace.js',
+  docFolder + '/text/TruncateLines.js',
 ];
 
 var options = {
