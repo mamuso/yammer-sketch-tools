@@ -2,7 +2,7 @@
  * ### Text / :scissors: Truncate text lines
  * **Shortcut:** ctrl alt cmd t
  * 
- * Cut the number of lines of a textbox, adding an ellipsis if needed. It works using works or characters.
+ * Cut the number of lines of a textbox, adding an ellipsis if needed. It works using words or characters.
  * 
  * Most of the ideas are taken from the [sketch data populator plugin](https://github.com/preciousforever/sketch-data-populator/).
  * 
@@ -27,8 +27,8 @@
 
     selection.forEach(function(layer){
       if(isLayerText(layer)) {
-        var ellipsis; 
         var text = String(layer.stringValue());
+        var ellipsis = text; 
 
         // Creates a duplicated text field to use it as a playground 
         var layerCopy = layer.duplicate();
@@ -45,24 +45,33 @@
 
 
         while (actualHeight > lineHeight * lines) {
+          // Shrinking the text
           if(truncateMode > 0) {
             text = text.slice(0,-1);
           } else {
             text = text.split(' ');
-            text.pop();
+            popped = text.pop();
             text = text.join(' ');
+            popped = popped.split('\n');
+            if (popped.length > 1 ) { 
+              text = text + ' ' + popped[0] 
+            }
           }
 
-          // get the string and remove punctuation
-          ellipsis = text;
-          if(ellipsis.slice(-1).match(/[\,\.\;\:\-\n\r]/)) { ellipsis = ellipsis.slice(0,-1) }
-          ellipsis = ellipsis + '…';
-          log(ellipsis)
+
+          if (popped && popped.length > 1) {
+            ellipsis = text;
+          } else {
+            // Remove unwanted characters
+            if(text.slice(-1).match(/[\,\.\;\:\-\n\r]/)) { text = text.slice(0,-1) }
+            ellipsis = text + '…';
+          }
 
           //set trimmed text and re-evaluate height
           layerCopy.setStringValue(ellipsis);
           refreshTextLayer(layerCopy);
           actualHeight = layerCopy.frame().height();
+
         }
 
         if(ellipsis.length > 1) {
