@@ -58,7 +58,6 @@
             }
           }
 
-
           if (popped && popped.length > 1) {
             ellipsis = text;
           } else {

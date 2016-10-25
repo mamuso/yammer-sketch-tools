@@ -3,7 +3,7 @@
   "description": "Our design team swiss knife.",
   "author": "Manuel Muñoz Solera",
   "authorEmail": "mamuso@mamuso.net",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "identifier": "io.mamuso.sketch.ytools",
   "commands": [
     {
