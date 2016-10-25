@@ -29,6 +29,7 @@
       if(isLayerText(layer)) {
         var text = String(layer.stringValue());
         var ellipsis = text; 
+        var popped;
 
         // Creates a duplicated text field to use it as a playground 
         var layerCopy = layer.duplicate();
