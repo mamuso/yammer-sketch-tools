@@ -27,19 +27,25 @@
     if (page) { layers = page }
     if (artboard) { layers = artboard }
     if (selection.count() > 0) { layers = selection }
-
+        
     if (layers.class() == '__NSArrayI') {
       for (var i = 0; i < layers.count(); i++) {
-        toggleMarginBox(layers[i].children());
+        if(layers[i].class() == "MSSymbolInstance") {
+          toggleMarginBox(layers[i].symbolMaster());
+        } else {
+          toggleMarginBox(layers[i]);
+        }
       }
     } else {
-        toggleMarginBox(layers.children());
+        toggleMarginBox(layers);
     }
 
     doc.showMessage("👏 Done!");
 
-    function toggleMarginBox(layers) {
-      var marginbox = io.mamuso.tools.findObjectsByName("y-marginbox", layers);
+    function toggleMarginBox(obj) {
+      obj = obj.children();
+
+      var marginbox = io.mamuso.tools.findObjectsByName("y-marginbox", obj);
       if (marginbox.count() > 0) {
         visible = visible == null? !marginbox.firstObject().isVisible() : visible; 
       }
@@ -47,7 +53,6 @@
       for (var i = 0; i < marginbox.count(); i++) {
         marginbox[i].setIsVisible(visible);
       }
-
     }
 
   } catch (e) {
