@@ -27,7 +27,7 @@
     if (page) { layers = page }
     if (artboard) { layers = artboard }
     if (selection.count() > 0) { layers = selection }
-        
+    log ("pene")
     if (layers.class() == '__NSArrayI') {
       for (var i = 0; i < layers.count(); i++) {
         if(layers[i].class() == "MSSymbolInstance") {
@@ -43,7 +43,7 @@
     doc.showMessage("👏 Done!");
 
     function toggleMarginBox(obj) {
-      obj = obj.children();
+      obj = obj.children();      
 
       var marginbox = io.mamuso.tools.findObjectsByName("y-marginbox", obj);
       if (marginbox.count() > 0) {
@@ -52,6 +52,12 @@
 
       for (var i = 0; i < marginbox.count(); i++) {
         marginbox[i].setIsVisible(visible);
+      }
+
+      // Do we have instance symbols?
+      var symbolinstances = io.mamuso.tools.findObjectsOfType(MSSymbolInstance, obj);
+      for (var i = 0; i < symbolinstances.count(); i++) {
+        toggleMarginBox(symbolinstances[i].symbolMaster());
       }
     }
 
