@@ -27,7 +27,6 @@
     if (page) { layers = page }
     if (artboard) { layers = artboard }
     if (selection.count() > 0) { layers = selection }
-    log ("pene")
     if (layers.class() == '__NSArrayI') {
       for (var i = 0; i < layers.count(); i++) {
         if(layers[i].class() == "MSSymbolInstance") {
