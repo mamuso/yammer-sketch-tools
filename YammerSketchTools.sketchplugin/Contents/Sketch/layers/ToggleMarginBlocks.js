@@ -42,7 +42,9 @@
     doc.showMessage("👏 Done!");
 
     function toggleMarginBox(obj) {
-      obj = obj.children();      
+      if(obj.children != undefined) {
+        obj = obj.children();
+      }
 
       var marginbox = io.mamuso.tools.findObjectsByName("y-marginbox", obj);
       if (marginbox.count() > 0) {
