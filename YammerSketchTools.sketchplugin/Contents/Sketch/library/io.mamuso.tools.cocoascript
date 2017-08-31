@@ -1,5 +1,6 @@
 var io = io ? io : {};
 io.mamuso = io.mamuso ? io.mamuso : {};
+io.mamuso.config = {};
 
 io.mamuso.tools = {
   
@@ -37,8 +38,14 @@ io.mamuso.tools = {
   // Make slice and export
   // -------------------------------------------------------------------
   sliceAndExport: function(obj, filename) {
-    var rect = MSSliceTrimming.trimmedRectForSlice(obj),
-    slice = MSExportRequest.requestWithRect_scale(rect, io.mamuso.config.scale);
+    var sliceLayerAncestry = MSImmutableLayerAncestry.ancestryWithMSLayer(obj),
+    rect = MSSliceTrimming.trimmedRectForLayerAncestry(sliceLayerAncestry),
+    slices = MSExportRequest.exportRequestsFromExportableLayer_inRect_useIDForName(obj, rect, false),
+    slice = null;
+    if (slices.count() > 0) {
+      slice = slices[0];
+      slice.scale = io.mamuso.config.scale;
+    }
     io.mamuso.config.doc.saveArtboardOrSlice_toFile(slice, filename);
   },
 
@@ -47,7 +54,7 @@ io.mamuso.tools = {
   // -------------------------------------------------------------------
   getDirFromPrompt: function() {
     var panel = [NSOpenPanel openPanel];
-    [panel setMessage:"🎟 Where do you want to export the documentation?"];
+    [panel setMessage:"🎟 Pick a folder?"];
     [panel setCanChooseDirectories: true];
     [panel setCanChooseFiles: false];
     [panel setCanCreateDirectories: true];
@@ -79,5 +86,42 @@ io.mamuso.tools = {
   markdownToHTML: function(text) {
     var html = [MMMarkdown HTMLStringWithMarkdown:text extensions:[1 << 0|1 << 3|1 << 5|1 << 6|1 << 8|1 << 9] error:null];
     return html;
+  },
+
+
+  // -------------------------------------------------------------------
+  // Exec, from https://github.com/mathieudutour/git-sketch-plugin/blob/master/Git.sketchplugin/Contents/Sketch/shared.cocoascript
+  // -------------------------------------------------------------------
+  exec: function(command) {
+    var task = NSTask.alloc().init();
+    var pipe = NSPipe.pipe();
+    var errPipe = NSPipe.pipe();
+
+    task.setLaunchPath_(@"/bin/bash");
+    task.setArguments_(NSArray.arrayWithObjects_("-c", command, nil));
+    task.setStandardOutput_(pipe);
+    task.setStandardError_(errPipe);
+    task.launch();
+
+    var data = errPipe.fileHandleForReading().readDataToEndOfFile();
+    if (data != nil && data.length())
+    {
+      var message = NSString.alloc().initWithData_encoding_(data, NSUTF8StringEncoding);
+      return NSException.raise_format_("failed", message);
+    }
+    data = pipe.fileHandleForReading().readDataToEndOfFile();
+    return NSString.alloc().initWithData_encoding_(data, NSUTF8StringEncoding);
+  },
+
+  // -------------------------------------------------------------------
+  // SVGo
+  // -------------------------------------------------------------------
+  svgo: function() {
+    var command = NSString.stringWithFormat_("\\export PATH=\"\/usr\/local\/bin\:\$PATH\" && cd \"%@\" && \\svgo --config='{ \"plugins\": [ {\"removeTitle\": true}, { \"removeNonInheritableGroupAttrs\": true }, { \"collapseGroups\": true }, { \"removeAttrs\": { \"attrs\": \"(fill|stroke)\" }} ]}' .\/", io.mamuso.config.basePath);
+    var stdout = io.mamuso.tools.exec(command);
+    log(stdout);
+
+    // plugins: [ {removeTitle: true}, { removeNonInheritableGroupAttrs: true }, { collapseGroups: true }, { removeAttrs: { attrs: '(fill|stroke)' }} ]
+
   }
 };

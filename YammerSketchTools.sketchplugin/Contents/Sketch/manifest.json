@@ -34,7 +34,12 @@
       "name": "✂️ Truncate text lines",
       "identifier": "text-truncate-text-lines",
       "shortcut": "ctrl alt cmd t",
-      "script": "text/TruncateLines.js"
+      "script": "Text/TruncateLines.js"
+    },
+    {
+      "name": "🐜 Export SVG icons",
+      "identifier": "icons-export-svg-icons",
+      "script": "Icons/ExportIcons.js"
     }
   ],
   "menu": {
@@ -43,7 +48,8 @@
       "layers-toggle-margin-block",
       "layers-compact-vertical-space",
       "layers-compact-horizontal-space",
-      "text-truncate-text-lines"
+      "text-truncate-text-lines",
+      "icons-export-svg-icons"
     ]
   }
 }
