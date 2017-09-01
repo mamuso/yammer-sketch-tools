@@ -28,6 +28,7 @@ var onRun = function(context) {
       if(io.mamuso.config.basePath == null) {
         return;
       } else {
+
         // looking for the artboard named 'icons'
         var iconsPage = io.mamuso.tools.findObjectsByName("icons", currentPage.artboards()).firstObject();
 
@@ -52,7 +53,9 @@ var onRun = function(context) {
 
               // toggle on the group we want to export
               var exportgroup = io.mamuso.tools.findObjectsByName("export", icongroups).firstObject();
-              exportgroup.setIsVisible(true);
+              if(exportgroup != null) {
+                exportgroup.setIsVisible(true);
+              }
 
               // export the svg
               filename = master.name() + ".svg";
@@ -60,11 +63,15 @@ var onRun = function(context) {
               io.mamuso.tools.sliceAndExport(master, filePath);
 
               // toggle off export
-              exportgroup.setIsVisible(false);
+              if(exportgroup != null) {
+                exportgroup.setIsVisible(false);
+              }
 
               // toggle on the group we use for symbol
               var symbolgroup = io.mamuso.tools.findObjectsByName("symbol", icongroups).firstObject();
-              symbolgroup.setIsVisible(true);
+              if(symbolgroup != null) {
+                symbolgroup.setIsVisible(true);
+              }
 
             }
 
