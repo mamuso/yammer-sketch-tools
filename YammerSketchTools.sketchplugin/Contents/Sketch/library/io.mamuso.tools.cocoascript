@@ -117,7 +117,7 @@ io.mamuso.tools = {
   // SVGo
   // -------------------------------------------------------------------
   svgo: function() {
-    var command = NSString.stringWithFormat_("\\export PATH=\"\/usr\/local\/bin\:\$PATH\" && cd \"%@\" && \\svgo --config='{ \"plugins\": [ {\"removeTitle\": true}, { \"removeNonInheritableGroupAttrs\": true }, { \"collapseGroups\": true }, { \"removeAttrs\": { \"attrs\": \"(fill|stroke)\" }} ]}' .\/", io.mamuso.config.basePath);
+    var command = NSString.stringWithFormat_("\\export PATH=\"\/usr\/local\/bin\:\$PATH\" && cd \"%@\" && \\svgo \--pretty \--indent\=2 \--config='{ \"plugins\": [ {\"removeTitle\": true}, { \"removeNonInheritableGroupAttrs\": true }, { \"collapseGroups\": true }, { \"removeAttrs\": { \"attrs\": \"(fill|stroke)\" }} ]}' .\/", io.mamuso.config.basePath);
     var stdout = io.mamuso.tools.exec(command);
     log(stdout);
   }
