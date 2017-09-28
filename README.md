@@ -48,3 +48,18 @@ Most of the ideas are taken from the [sketch data populator plugin](https://gith
 
 ![Trim](doc/assets/trimline-character.gif)
 
+### Icons / :ant: Export SVG Icons
+
+Based on Yammer Icon MasterDoc conventions. The plugin only acts over the elements of the 
+artboard 'icons' in the current page. This way we can manage icons also for different platform
+with different export needs.
+
+For making this plugin work you need to have SVGo installed. 
+If you have brew, try ```brew install svgo```
+
+Naming conventions:
+- The export group needs to be in a "symbol" group
+- The icon masking the color needs to be named "mask"
+
+![iconstructure](doc/assets/iconstructure.png)
+

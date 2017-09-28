@@ -3,7 +3,8 @@
   "description": "Our design team swiss knife.",
   "author": "Manuel Muñoz Solera",
   "authorEmail": "mamuso@mamuso.net",
-  "version": "0.0.7",
+  "version": "0.0.8",
+  "appcast" : "https://raw.githubusercontent.com/mamuso/yammer-sketch-tools/master/appcast.xml",
   "identifier": "io.mamuso.sketch.ytools",
   "commands": [
     {

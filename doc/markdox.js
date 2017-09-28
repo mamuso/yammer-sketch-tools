@@ -10,6 +10,7 @@ var fixtures = [
   docFolder + '/layers/CompactVerticalSpace.js',
   docFolder + '/layers/CompactHorizontalSpace.js',
   docFolder + '/text/TruncateLines.js',
+  docFolder + '/icons/Exporticons.js',
 ];
 
 var options = {

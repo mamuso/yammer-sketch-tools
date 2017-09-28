@@ -2,12 +2,20 @@
  * ### Icons / :ant: Export SVG Icons
  * 
  * Based on Yammer Icon MasterDoc conventions. The plugin only acts over the elements of the 
- * artboard 'icons' in the current page:
+ * artboard 'icons' in the current page. This way we can manage icons also for different platform
+ * with different export needs.
+ *
+ * For making this plugin work you need to have SVGo installed. 
+ * If you have brew, try ```brew install svgo```
  * 
- * - Toggles off the visibility of all the groups of each instance
- * - Toggles on the visibility of the 'export' group
- * - Creates a temporary slice per instance and export an SVG
- * - Toggles off the 'export' group and on the 'symbol' group
+ * Naming conventions:
+ * - The export group needs to be in a "symbol" group
+ * - The icon masking the color needs to be named "mask"
+ *
+ * ![iconstructure](doc/assets/iconstructure.png)
+ * 
+ * @todo: make the plugin change pages automatically
+ * 
  * 
  */
 
@@ -50,36 +58,51 @@ var onRun = function(context) {
                   icongroups[j].setIsVisible(false);
                 }
               }
-
+              
               // toggle on the group we want to export
-              var exportgroup = io.mamuso.tools.findObjectsByName("export", icongroups).firstObject();
-              if(exportgroup != null) {
-                exportgroup.setIsVisible(true);
-              }
-
-              // export the svg
-              filename = master.name() + ".svg";
-              filePath = io.mamuso.config.basePath.stringByAppendingPathComponent(filename);
-              io.mamuso.tools.sliceAndExport(master, filePath);
-
-              // toggle off export
-              if(exportgroup != null) {
-                exportgroup.setIsVisible(false);
-              }
-
-              // toggle on the group we use for symbol
               var symbolgroup = io.mamuso.tools.findObjectsByName("symbol", icongroups).firstObject();
               if(symbolgroup != null) {
                 symbolgroup.setIsVisible(true);
+                var symbolelements = symbolgroup.children();
+                // Toggle all the layers off except "mask" + turn the mask off
+                for (var k = 0; k < symbolelements.count(); k++) {
+                  if(symbolelements[k].class() != MSLayerGroup) {
+                    if(symbolelements[k].name() == "mask") {
+                      symbolelements[k].setIsVisible(true);
+                      symbolelements[k].hasClippingMask = 0;
+                      // What if is a boolean shape?
+                      for (var l = 0; l < symbolelements[k].children().count(); l++) {
+                        symbolelements[k].children()[l].setIsVisible(true);
+                      }
+                    } else {
+                      symbolelements[k].setIsVisible(false);
+                    }
+                  }
+                }
+
+                // export the svg
+                filename = master.name() + ".svg";
+                filePath = io.mamuso.config.basePath.stringByAppendingPathComponent(filename);
+                io.mamuso.tools.sliceAndExport(master, filePath);
+
+              // Go back to normal
+              for (var k = 0; k < symbolelements.count(); k++) {
+                symbolelements[k].setIsVisible(true);
+                if(symbolelements[k].class() != MSLayerGroup) {
+                  if(symbolelements[k].name() == "mask") {
+                    symbolelements[k].hasClippingMask = 1;
+                  }
+                }
               }
 
-            }
 
+            }
           }
-          // svgo
-          io.mamuso.tools.svgo();
         }
+        // svgo
+        io.mamuso.tools.svgo();
       }
+    }
 
   } catch (e) {
   	NSApplication.sharedApplication().displayDialog_withTitle_(e, "Something went 💩");
