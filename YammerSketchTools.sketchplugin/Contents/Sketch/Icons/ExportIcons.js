@@ -24,7 +24,6 @@
 var onRun = function(context) {
   try {
     var doc = context.document,
-      currentPage = doc.currentPage(),
       scriptPath = context.scriptPath,
       homeFolder = "/Users/" + NSUserName();
 
@@ -38,7 +37,7 @@ var onRun = function(context) {
       } else {
 
         // looking for the artboard named 'icons'
-        var iconsPage = io.mamuso.tools.findObjectsByName("icons", currentPage.artboards()).firstObject();
+        var iconsPage = io.mamuso.tools.findObjectsByName("icons", doc.pages()).firstObject();
 
         if(iconsPage == null) {
           return;
